@@ -19,3 +19,7 @@ body {
     position: absolute;
 }
 
+#hey {
+    position: absolute;
+    left: 20vmin;
+}
