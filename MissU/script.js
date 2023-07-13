@@ -13,3 +13,7 @@ for (const name of namesElement.children) {
 
 let nrOfNames = names.length;
 
+function getNameWithIndex(index) {
+    return names[index];
+}
+
