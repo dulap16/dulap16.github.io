@@ -31,3 +31,6 @@ body {
     z-index: 2;
 }
 
+.name:nth-child(7) {
+    z-index: 3;
+}
