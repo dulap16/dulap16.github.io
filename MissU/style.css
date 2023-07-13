@@ -6,3 +6,12 @@ body {
     text-align: center;
     background-color: rgb(227, 227, 227);
 }
+
+.namesdiv {
+    background-color: white;
+}
+
+.missing {
+    padding: 170px 0 100px 0;
+}
+
