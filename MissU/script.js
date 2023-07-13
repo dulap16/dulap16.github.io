@@ -49,3 +49,6 @@ function goToPreviousElement() {
         currentIndexOfName = nrOfNames;
 
     showElementWithIndex(currentIndexOfName);
+}
+
+showElementWithIndex(0);
