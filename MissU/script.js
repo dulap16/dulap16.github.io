@@ -7,6 +7,8 @@ for (const name of namesElement.children) {
         names.push(name);
         name.classList.add(name.textContent);
 
+        name.addEventListener('click', function(event) {
+            goToNextElement();
         })
     }
 }
