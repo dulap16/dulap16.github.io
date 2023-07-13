@@ -17,3 +17,12 @@ function getNameWithIndex(index) {
     return names[index];
 }
 
+function hideElementWithIndex(index) {
+    let currentName = getNameWithIndex(index);
+    currentName.style.zIndex = 1;
+}
+
+function showElementWithIndex(index) {
+    let currentName = getNameWithIndex(index);
+    currentName.style.zIndex = 3;
+}
