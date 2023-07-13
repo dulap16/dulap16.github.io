@@ -5,6 +5,7 @@ body {
     font-weight: 300;
     text-align: center;
     background-color: rgb(227, 227, 227);
+    user-select: none;
 }
 
 .namesdiv {
@@ -19,6 +20,10 @@ body {
     position: absolute;
 }
 
+.name:hover {
+    cursor: default;
+}
+
 #hey {
     position: absolute;
     left: 20vmin;
@@ -31,6 +36,20 @@ body {
     z-index: 2;
 }
 
-.name:nth-child(7) {
-    z-index: 3;
+#upperHiding {
+    position: relative;
+    background-color: red;
+    width: 50vmin;
+    height: 15vmin;
+    z-index: 5;
+    /* top: 17vmin; */
+}
+
+#lowerHiding {
+    position: relative;
+    background-color: black;
+    width: 50vmin;
+    height: 15vmin;
+    /* top: 45vmin; */
+    z-index: 5;
 }
