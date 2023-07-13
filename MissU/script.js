@@ -26,3 +26,24 @@ function showElementWithIndex(index) {
     let currentName = getNameWithIndex(index);
     currentName.style.zIndex = 3;
 }
+
+function goToNextElement() {
+    console.log(currentIndexOfName);
+
+    hideElementWithIndex(currentIndexOfName);
+    currentIndexOfName = currentIndexOfName + 1;
+    if (currentIndexOfName >= nrOfNames)
+        currentIndexOfName = 1;
+
+    console.log(currentIndexOfName);
+    showElementWithIndex(currentIndexOfName);
+}
+
+function goToPreviousElement() {
+    hideElementWithIndex(currentIndexOfName);
+
+    currentIndexOfName = currentIndexOfName - 1;
+    if (currentIndexOfName == 0)
+        currentIndexOfName = nrOfNames;
+
+    showElementWithIndex(currentIndexOfName);
