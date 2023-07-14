@@ -156,3 +156,9 @@ function lerp(start, end, amt) {
 }
 
 function move() {
+    gfNames.forEach((gf) => {
+        gf.updatePosition();
+    });
+
+    requestAnimationFrame(move);
+}
