@@ -1,4 +1,6 @@
 const namesElement = document.getElementById("names");
+const upperHiding = document.getElementById("upperHiding");
+const lowerHiding = document.getElementById("lowerHiding");
 let names = [];
 let currentIndexOfName = 0;
 
