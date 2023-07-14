@@ -113,6 +113,14 @@ for (const name of namesElement.children) {
 let currentName = gfNames[currentIndexOfName];
 let nrOfNames = names.length;
 
+function init() {
+    showName(getgfNameWithIndex(0));
+    for (let i = 1; i < nrOfNames; i++)
+        hideName(getgfNameWithIndex(i));
+
+    console.log("initializing");
+}
+
 function getPosOfElement(element) {
     var rect = element.getBoundingClientRect();
     var position = {
