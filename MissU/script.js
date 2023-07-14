@@ -12,6 +12,87 @@ let names = [];
 let currentIndexOfName = 0;
 const speed = 0.1;
 
+class gfName {
+    constructor(element) {
+        this.element = element;
+        this.name = this.element.textContent;
+        this.position = getPosOfElement(this.element);
+        this.opacity = 1;
+
+        this.finalY = this.position.y;
+        this.finalOpacity = 1;
+    }
+
+    get getElement() {
+        return this.element;
+    };
+
+    get getName() {
+        return this.name;
+    };
+
+    get getPosition() {
+        return this.position;
+    };
+
+    get getOpacity() {
+        return this.opacity;
+    };
+
+    set setFinalY(y) {
+        this.finalY = y;
+    };
+
+    set setFinalOpacity(opacity) {
+        this.finalOpacity = opacity;
+    };
+
+    get getNextY() {
+        return lerp(this.position.y, this.finalY, speed);
+    }
+
+    get getNextOpacity() {
+        return lerp(this.opacity, this.finalOpacity, speed);
+    }
+
+    sendDown = () => {
+        this.finalY = lowerY;
+        this.finalOpacity = invisOpacity;
+    }
+
+    sendUp = () => {
+        this.finalY = upperY;
+        this.finalOpacity = invisOpacity;
+    }
+
+    sendMiddle = () => {
+        this.finalY = visibleY;
+        this.finalOpacity = visOpacity;
+    }
+
+    updatePosition = () => {
+        if (this.finalY == this.position.y)
+            return;
+
+        this.position.y = this.getNextY;
+        this.element.css({
+            'transform': 'translate(0px, ' + this.position.y + 'px)'
+        });
+    }
+
+    updateOpacity = () => {
+        if (this.opacity == this.finalOpacity)
+            return;
+
+        let nextOpacity = this.getNextOpacity;
+        this.opacity = nextOpacity;
+
+        this.position.y = nextY;
+        this.element.css({
+            'opacity': nextOpacity
+        });
+    }
+}
 for (const name of namesElement.children) {
     if (name.className == "name") {
         names.push(name);
