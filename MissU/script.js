@@ -109,6 +109,18 @@ function init() {
     console.log("initializing");
 }
 
+function getURLFromText(text) {
+    return `images/${text}.jpeg`;
+}
+
+function getImageTextFromIndex(index) {
+    return imageNames[index];
+}
+
+function getURLFromIndex(index) {
+    return getURLFromText(getImageTextFromIndex(index));
+}
+
 function showName(name) {
     name.moveToY(visibleY);
 }
