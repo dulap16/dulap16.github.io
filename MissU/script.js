@@ -1,6 +1,8 @@
 const namesElement = document.getElementById("names");
 const upperHiding = document.getElementById("upperHiding");
 const lowerHiding = document.getElementById("lowerHiding");
+const image = document.getElementById("image");
+
 const imageNames = ["firstdate", "kissing", "badtzmaru", "redhair", "plantutz", "shelikemefr"];
 
 console.log(getYOfElement(namesElement));
