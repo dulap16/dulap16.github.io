@@ -113,6 +113,14 @@ let nrOfNames = names.length;
 
 function getNameWithIndex(index) {
     return names[index];
+function getPosOfElement(element) {
+    var rect = element.getBoundingClientRect();
+    var position = {
+        x: rect.x,
+        y: rect.y
+    }
+
+    return position;
 }
 
 function hideElementWithIndex(index) {
