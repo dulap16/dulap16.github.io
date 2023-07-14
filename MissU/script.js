@@ -125,6 +125,8 @@ function getNameWithIndex(index) {
     return names[index];
 }
 
+function getgfNameWithIndex(index) {
+    return gfNames[index];
 }
 
 function goToNextElement() {
