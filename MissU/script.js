@@ -102,6 +102,7 @@ let currentName = gfNames[currentIndexOfName];
 let nrOfNames = names.length;
 
 function init() {
+    changeImageFromIndex(0);
     showName(getgfNameWithIndex(0));
     for (let i = 1; i < nrOfNames; i++)
         hideName(getgfNameWithIndex(i));
@@ -166,6 +167,7 @@ function goToNextElement() {
         currentIndexOfName = 0;
 
     currentName = getgfNameWithIndex(currentIndexOfName);
+    changeImageFromIndex(currentIndexOfName);
     currentName.sendMiddle();
 }
 
