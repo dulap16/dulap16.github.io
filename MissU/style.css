@@ -75,4 +75,13 @@ body {
     vertical-align: middle;
 }
 
+#image {
+    background-image: url('images/firstdate.jpeg');
+    width: 80%;
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: auto;
+    border-radius: 10%;
+    background-position: center center;
 }
