@@ -14,14 +14,17 @@ body {
 
 .missing {
     padding: 170px 0 100px 0;
+    z-index: 7;
 }
 
 .name {
     position: absolute;
 }
 
-.name:hover {
-    cursor: default;
+#namesSection {
+    background-color: black;
+    position: absolute;
+    right: 55vmin;
 }
 
 #hey {
