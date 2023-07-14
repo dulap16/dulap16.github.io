@@ -12,7 +12,6 @@ const timeOfMovement = 500;
 
 let names = [];
 let currentIndexOfName = 0;
-const speed = 0.1;
 
 class gfName {
     constructor(element) {
@@ -34,29 +33,18 @@ class gfName {
         return this.name;
     };
 
-    get getPosition() {
-        return this.position;
-    };
-
-    get getOpacity() {
-        return this.opacity;
+    get getY() {
+        return this.y;
     };
 
     set setFinalY(y) {
         this.finalY = y;
     };
 
-    set setFinalOpacity(opacity) {
-        this.finalOpacity = opacity;
+    get getNextY() {
+        return this.y + velocity * this.elapsedTime;
     };
 
-    get getNextY() {
-        return lerp(this.position.y, this.finalY, speed);
-    }
-
-    get getNextOpacity() {
-        return lerp(this.opacity, this.finalOpacity, speed);
-    }
 
     sendDown = () => {
         this.finalY = lowerY;
