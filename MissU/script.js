@@ -18,11 +18,12 @@ class gfName {
     constructor(element) {
         this.element = element;
         this.name = this.element.textContent;
-        this.position = getPosOfElement(this.element);
-        this.opacity = 1;
+        this.y = getYOfElement(this.element);
 
-        this.finalY = this.position.y;
-        this.finalOpacity = 1;
+        this.finalY = this.y;
+
+        this.startTime = 0;
+        this.elapsedTime = 0;
     }
 
     get getElement() {
