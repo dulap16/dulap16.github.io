@@ -49,7 +49,7 @@ body {
     position: relative;
     background-color: black;
     width: 50vmin;
-    height: 15vmin;
-    /* top: 45vmin; */
+    height: 25vmin;
+    top: 12vmin;
     z-index: 5;
 }

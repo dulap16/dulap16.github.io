@@ -1,4 +1,15 @@
 const namesElement = document.getElementById("names");
+
+const upperHiding = document.getElementById("upperHiding");
+const lowerHiding = document.getElementById("lowerHiding");
+
+console.log(getYOfElement(namesElement));
+
+const upperY = -50;
+const visibleY = 0;
+const lowerY = 50;
+const velocity = 5.3 / 1000;
+const timeOfMovement = 600;
 let names = [];
 let currentIndexOfName = 0;
 
