@@ -156,3 +156,11 @@ const move = () => {
 
     requestAnimationFrame(move);
 }
+
+
+function main() {
+    init();
+    move();
+}
+
+main();
