@@ -53,10 +53,14 @@ body {
 #lowerHiding {
     position: absolute;
     background-color: rgb(227, 227, 227);
+    padding: auto;
     /* background-color: blue; */
     width: 50vmin;
     height: 25vmin;
     top: 12vmin;
     z-index: 5;
     border-top: 2px groove black;
+    font-size: 5vmin;
+    font-style: italic;
+}
 }
