@@ -8,10 +8,6 @@ body {
     user-select: none;
 }
 
-.namesdiv {
-    background-color: white;
-}
-
 .missing {
     padding: 170px 0 100px 0;
     z-index: 7;
