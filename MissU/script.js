@@ -121,6 +121,12 @@ function getURLFromIndex(index) {
     return getURLFromText(getImageTextFromIndex(index));
 }
 
+function changeImageFromIndex(index) {
+    let url = getURLFromIndex(index);
+    console.log(url);
+    image.style.backgroundImage = `url('${url}')`;
+}
+
 function showName(name) {
     name.moveToY(visibleY);
 }
