@@ -130,25 +130,25 @@ function getgfNameWithIndex(index) {
 }
 
 function goToNextElement() {
-    console.log(currentIndexOfName);
+    currentName.sendDown();
 
-    hideElementWithIndex(currentIndexOfName);
     currentIndexOfName = currentIndexOfName + 1;
     if (currentIndexOfName >= nrOfNames)
-        currentIndexOfName = 1;
+        currentIndexOfName = 0;
 
-    console.log(currentIndexOfName);
-    showElementWithIndex(currentIndexOfName);
+    currentName = getNameWithIndex(currentIndexOfName);
+    currentName.sendMiddle();
 }
 
 function goToPreviousElement() {
-    hideElementWithIndex(currentIndexOfName);
+    currentName.sendUp();
 
     currentIndexOfName = currentIndexOfName - 1;
-    if (currentIndexOfName == 0)
-        currentIndexOfName = nrOfNames;
+    if (currentIndexOfName == -1)
+        currentIndexOfName = nrOfNames - 1;
 
-    showElementWithIndex(currentIndexOfName);
+    currentName = getNameWithIndex(currentIndexOfName);
+    currentName.sendMiddle();
 }
 
 showElementWithIndex(0);
