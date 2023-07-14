@@ -148,22 +148,7 @@ function goToNextElement() {
     currentName.sendMiddle();
 }
 
-function goToPreviousElement() {
-    currentName.sendUp();
-
-    currentIndexOfName = currentIndexOfName - 1;
-    if (currentIndexOfName == -1)
-        currentIndexOfName = nrOfNames - 1;
-
-    currentName = getNameWithIndex(currentIndexOfName);
-    currentName.sendMiddle();
-}
-
-function lerp(start, end, amt) {
-    return (1 - amt) * start + amt * end;
-}
-
-function move() {
+const move = () => {
     gfNames.forEach((gf) => {
         gf.updatePosition();
     });
