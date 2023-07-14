@@ -108,6 +108,7 @@ for (const name of namesElement.children) {
     }
 }
 
+let currentName = gfNames[currentIndexOfName];
 let nrOfNames = names.length;
 
 function getNameWithIndex(index) {
