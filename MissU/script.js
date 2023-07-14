@@ -8,7 +8,7 @@ const upperY = -50;
 const visibleY = 0;
 const lowerY = 50;
 const velocity = 5.3 / 1000;
-const timeOfMovement = 600;
+const timeOfMovement = 700;
 let names = [];
 let currentIndexOfName = 0;
 
