@@ -93,10 +93,14 @@ class gfName {
         });
     }
 }
+
+var gfNames = [];
 for (const name of namesElement.children) {
     if (name.className == "name") {
         names.push(name);
         name.classList.add(name.textContent);
+
+        gfNames.push(new gfName(name));
 
         name.addEventListener('click', function(event) {
             goToNextElement();
