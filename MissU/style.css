@@ -14,14 +14,17 @@ body {
 
 .missing {
     padding: 170px 0 100px 0;
+    z-index: 7;
 }
 
 .name {
     position: absolute;
 }
 
-.name:hover {
-    cursor: default;
+#namesSection {
+    background-color: black;
+    position: absolute;
+    right: 55vmin;
 }
 
 #hey {
@@ -37,19 +40,23 @@ body {
 }
 
 #upperHiding {
-    position: relative;
-    background-color: red;
+    position: absolute;
+    background-color: rgb(227, 227, 227);
+    /* background-color: blue; */
     width: 50vmin;
-    height: 15vmin;
+    height: 12vmin;
     z-index: 5;
-    /* top: 17vmin; */
+    top: -13vmin;
+    border-bottom: 2px groove black;
 }
 
 #lowerHiding {
-    position: relative;
-    background-color: black;
+    position: absolute;
+    background-color: rgb(227, 227, 227);
+    /* background-color: blue; */
     width: 50vmin;
     height: 25vmin;
     top: 12vmin;
     z-index: 5;
+    border-top: 2px groove black;
 }

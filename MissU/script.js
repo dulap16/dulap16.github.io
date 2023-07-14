@@ -1,5 +1,4 @@
 const namesElement = document.getElementById("names");
-
 const upperHiding = document.getElementById("upperHiding");
 const lowerHiding = document.getElementById("lowerHiding");
 
@@ -13,10 +12,82 @@ const timeOfMovement = 600;
 let names = [];
 let currentIndexOfName = 0;
 
+class gfName {
+    constructor(element) {
+        this.element = element;
+        this.name = this.element.textContent;
+        this.y = getYOfElement(this.element);
+
+        this.finalY = this.y;
+
+        this.startTime = 0;
+        this.elapsedTime = 0;
+    }
+
+    get getElement() {
+        return this.element;
+    };
+
+    get getName() {
+        return this.name;
+    };
+
+    get getY() {
+        return this.y;
+    };
+
+    set setFinalY(y) {
+        this.finalY = y;
+    };
+
+    get getNextY() {
+        return this.y + velocity * this.elapsedTime;
+    };
+
+    resetTime = () => {
+        this.startTime = Date.now();
+        this.elapsedTime = 0;
+    };
+
+    sendDown = () => {
+        this.resetTime();
+        this.moveToY(visibleY);
+
+        this.finalY = lowerY;
+    };
+
+    sendMiddle = () => {
+        this.resetTime();
+        this.moveToY(upperY);
+
+        this.finalY = visibleY;
+    };
+
+    moveToY(newY) {
+        this.y = newY;
+        this.finalY = this.y;
+        this.element.style.top = newY + 'px';
+    };
+
+    updatePosition = () => {
+        this.elapsedTime = Date.now() - this.startTime;
+        if (this.elapsedTime > timeOfMovement) {
+            this.moveToY(this.finalY);
+            return;
+        }
+
+        let nextY = this.getNextY;
+        this.moveToY(nextY);
+    };
+}
+
+var gfNames = [];
 for (const name of namesElement.children) {
     if (name.className == "name") {
         names.push(name);
         name.classList.add(name.textContent);
+
+        gfNames.push(new gfName(name));
 
         name.addEventListener('click', function(event) {
             goToNextElement();
@@ -24,42 +95,71 @@ for (const name of namesElement.children) {
     }
 }
 
+let currentName = gfNames[currentIndexOfName];
 let nrOfNames = names.length;
+
+function init() {
+    showName(getgfNameWithIndex(0));
+    for (let i = 1; i < nrOfNames; i++)
+        hideName(getgfNameWithIndex(i));
+
+    console.log("initializing");
+}
+
+function showName(name) {
+    name.moveToY(visibleY);
+}
+
+function hideName(name) {
+    name.moveToY(upperY);
+}
+
+function getPosOfElement(element) {
+    var rect = element.getBoundingClientRect();
+    var position = {
+        x: rect.x,
+        y: rect.y
+    }
+
+    return position;
+}
+
+function getYOfElement(element) {
+    return getPosOfElement(element).y;
+}
 
 function getNameWithIndex(index) {
     return names[index];
 }
 
-function hideElementWithIndex(index) {
-    let currentName = getNameWithIndex(index);
-    currentName.style.zIndex = 1;
-}
-
-function showElementWithIndex(index) {
-    let currentName = getNameWithIndex(index);
-    currentName.style.zIndex = 3;
+function getgfNameWithIndex(index) {
+    return gfNames[index];
 }
 
 function goToNextElement() {
-    console.log(currentIndexOfName);
+    // console.log(currentName);
+    currentName.sendDown();
 
-    hideElementWithIndex(currentIndexOfName);
     currentIndexOfName = currentIndexOfName + 1;
     if (currentIndexOfName >= nrOfNames)
-        currentIndexOfName = 1;
+        currentIndexOfName = 0;
 
-    console.log(currentIndexOfName);
-    showElementWithIndex(currentIndexOfName);
+    currentName = getgfNameWithIndex(currentIndexOfName);
+    currentName.sendMiddle();
 }
 
-function goToPreviousElement() {
-    hideElementWithIndex(currentIndexOfName);
+const move = () => {
+    gfNames.forEach((gf) => {
+        gf.updatePosition();
+    });
 
-    currentIndexOfName = currentIndexOfName - 1;
-    if (currentIndexOfName == 0)
-        currentIndexOfName = nrOfNames;
-
-    showElementWithIndex(currentIndexOfName);
+    requestAnimationFrame(move);
 }
 
-showElementWithIndex(0);
+
+function main() {
+    init();
+    move();
+}
+
+main();
