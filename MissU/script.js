@@ -111,8 +111,6 @@ for (const name of namesElement.children) {
 let currentName = gfNames[currentIndexOfName];
 let nrOfNames = names.length;
 
-function getNameWithIndex(index) {
-    return names[index];
 function getPosOfElement(element) {
     var rect = element.getBoundingClientRect();
     var position = {
@@ -123,14 +121,10 @@ function getPosOfElement(element) {
     return position;
 }
 
-function hideElementWithIndex(index) {
-    let currentName = getNameWithIndex(index);
-    currentName.style.zIndex = 1;
+function getNameWithIndex(index) {
+    return names[index];
 }
 
-function showElementWithIndex(index) {
-    let currentName = getNameWithIndex(index);
-    currentName.style.zIndex = 3;
 }
 
 function goToNextElement() {
