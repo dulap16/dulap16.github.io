@@ -125,6 +125,10 @@ function getPosOfElement(element) {
     return position;
 }
 
+function getYOfElement(element) {
+    return getPosOfElement(element).y;
+}
+
 function getNameWithIndex(index) {
     return names[index];
 }
