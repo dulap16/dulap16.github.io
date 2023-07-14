@@ -1,8 +1,16 @@
 const namesElement = document.getElementById("names");
 const upperHiding = document.getElementById("upperHiding");
 const lowerHiding = document.getElementById("lowerHiding");
+
+const upperY = getPosOfElement(upperHiding).y;
+const visibleY = 150;
+const lowerY = getPosOfElement(lowerHiding).y;
+const invisOpacity = 0;
+const visOpacity = 1;
+
 let names = [];
 let currentIndexOfName = 0;
+const speed = 0.1;
 
 for (const name of namesElement.children) {
     if (name.className == "name") {
