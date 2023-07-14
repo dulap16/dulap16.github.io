@@ -121,6 +121,14 @@ function init() {
     console.log("initializing");
 }
 
+function showName(name) {
+    name.moveToY(visibleY);
+}
+
+function hideName(name) {
+    name.moveToY(upperY);
+}
+
 function getPosOfElement(element) {
     var rect = element.getBoundingClientRect();
     var position = {
