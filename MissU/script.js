@@ -45,44 +45,41 @@ class gfName {
         return this.y + velocity * this.elapsedTime;
     };
 
+    resetTime = () => {
+        this.startTime = Date.now();
+        this.elapsedTime = 0;
+    };
 
     sendDown = () => {
-        this.finalY = lowerY;
-        this.finalOpacity = invisOpacity;
-    }
+        this.resetTime();
+        this.moveToY(visibleY);
 
-    sendUp = () => {
-        this.finalY = upperY;
-        this.finalOpacity = invisOpacity;
-    }
+        this.finalY = lowerY;
+    };
 
     sendMiddle = () => {
+        this.resetTime();
+        this.moveToY(upperY);
+
         this.finalY = visibleY;
-        this.finalOpacity = visOpacity;
-    }
+    };
+
+    moveToY(newY) {
+        this.y = newY;
+        this.finalY = this.y;
+        this.element.style.top = newY + 'px';
+    };
 
     updatePosition = () => {
-        if (this.finalY == this.position.y)
+        this.elapsedTime = Date.now() - this.startTime;
+        if (this.elapsedTime > timeOfMovement) {
+            this.moveToY(this.finalY);
             return;
+        }
 
-        this.position.y = this.getNextY;
-        this.element.css({
-            'transform': 'translate(0px, ' + this.position.y + 'px)'
-        });
-    }
-
-    updateOpacity = () => {
-        if (this.opacity == this.finalOpacity)
-            return;
-
-        let nextOpacity = this.getNextOpacity;
-        this.opacity = nextOpacity;
-
-        this.position.y = nextY;
-        this.element.css({
-            'opacity': nextOpacity
-        });
-    }
+        let nextY = this.getNextY;
+        this.moveToY(nextY);
+    };
 }
 
 var gfNames = [];
