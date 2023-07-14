@@ -138,13 +138,14 @@ function getgfNameWithIndex(index) {
 }
 
 function goToNextElement() {
+    // console.log(currentName);
     currentName.sendDown();
 
     currentIndexOfName = currentIndexOfName + 1;
     if (currentIndexOfName >= nrOfNames)
         currentIndexOfName = 0;
 
-    currentName = getNameWithIndex(currentIndexOfName);
+    currentName = getgfNameWithIndex(currentIndexOfName);
     currentName.sendMiddle();
 }
 
